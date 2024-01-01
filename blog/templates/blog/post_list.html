@@ -1,38 +1,13 @@
-{% load static %}
-<style>
-    h1 {text-align: center;}
-    p {text-align: center;}
-    div {text-align: center;}
-    .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    }
-    body {
-  background-color: rgb(177, 209, 219);
-   }
-</style>
-<header>
-    <!--
-    <h1><a href="/">Happy New Year Kalpna :)</a></h1>
-    -->
-    <h1>Happy New Year Kalpna :)</h1>
-</header>
+{% extends 'blog/base.html' %}
 
-<h1> May all your dreams come true</h1>
-
-
-<img src="https://i.postimg.cc/65WZgBF3/0.png" alt="Sample Image_2" width="500" height="600" class="center">
-<!--
-
-<img src="{% static '\img\sample_image.jpg' %}" alt="Sample Image">
-
-{% for post in posts %}
-    <article>
-        <time>published: {{ post.published_date }}</time>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </article>
-{% endfor %}
--->
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
